@@ -9,9 +9,10 @@ The is a sample app for Zoom Meeting SDK Linux. It demonstrates access to raw au
     1. Client ID
     2. Client Secret
 3. Meeting Recording Token (Optional)
-4. Docker environment
-5. Linux or Windows with WSL environment.
-6. VS Code or Visual Studio
+4. ClientId and ClientSecret should belong to same zoomsdk-rar file account which was downloaded from zoom marketplace. 
+5. Docker environment
+6. Linux or Windows with WSL environment.
+7. VS Code or Visual Studio
  ======================================================================
 
 ## Getting Started
@@ -23,7 +24,8 @@ The is a sample app for Zoom Meeting SDK Linux. It demonstrates access to raw au
  -  `h` to `demo/include/h`
  - `qt_libs` to `demo/lib/zoom_meeting_sdk/qt_libs`
  - all the `lib******.so` files to `demo/lib/zoom_meeting_sdk/lib******.so`
- - copy `translation.json` to `demo/lib/zoom_meeting_sdk/json`
+ - create a folder json in `demo/lib/zoom_meeting_sdk`
+ - copy `json/translation.json` to `demo/lib/zoom_meeting_sdk/json`
  - softlink  `libmeetingsdk.so` to `libmeetingsdk.so.1` within `demo/lib/zoom_meeting_sdk/` . You can use the command `ln -s libmeetingsdk.so libmeetingsdk.so.1` to do so.
 
 2 Execute `cmake -B build` in demo/ folder . After successful` cmake`, the `demo/build/` folder will be generated.
@@ -33,6 +35,8 @@ The is a sample app for Zoom Meeting SDK Linux. It demonstrates access to raw au
 ### Notes for using the demo:
 1. The sdk auth token, password, meeting number etc.. needs to be written in the config.txt file.
 The [recording_token](https://developers.zoom.us/docs/meeting-sdk/apis/#operation/meetingLocalRecordingJoinToken) when entered, will allow you to recording with additional actions from host.
+
+2. The [token](https://developers.zoom.us/docs/meeting-sdk/auth/) this is a jwt auth token which is also known as signture. 
 
 `GetVideoRawData`, `GetAudioRawData`, `SendVideoRawData`, `SendAudioRawData` are boolean control variables. You can search for them in the sample code to understand the flow.
 
